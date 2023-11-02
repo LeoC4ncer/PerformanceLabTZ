@@ -57,11 +57,10 @@ public class Program
             return null;
     }
 
-    public static void Main()
+    public static void Main(string[] args)
     {
-        string line = (Console.ReadLine()).Trim();
-        string fileTests = (line.Substring(0, line.IndexOf(' '))).Trim();
-        string fileValues = (line.Substring(line.IndexOf(' '))).Trim();
+        string fileTests = args[0];
+        string fileValues = args[1];
         
         string jsonString = File.ReadAllText(Path.GetFullPath(fileTests));
         Tests tests = JsonSerializer.Deserialize<Tests>(jsonString)!;
